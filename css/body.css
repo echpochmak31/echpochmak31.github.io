@@ -31,8 +31,8 @@ body {
     padding-bottom: 60px; /* Must match footer height; make up for footer being removed from the document flow */
     min-height: 100%; /* Force body to be at least the size of the screen */
     background: #ECECEC; /* Backup color */
-    /*background: url("background-limes.png") no-repeat center center fixed;*/
-    background: url("images/background-image.png") no-repeat center center fixed;
+    background: url("../images/background-limes.png") no-repeat center center fixed;
+    /*background: url("../images/background-image.png") no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
