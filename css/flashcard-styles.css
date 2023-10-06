@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    justify-content: safe center;;
+    align-items: center;
+}
+
+#flashcard-block {
+    display: flex;
+    justify-content: safe center;;
+    align-items: center;
+    gap: 30px;
+    background: rgba(49, 179, 163, 0.5);
+    width: 1512px;
+    height: 640px;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5)
+}
+
+.arrow-block {
+    width: 120px;
+    height: 400px;
+    background: rgba(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5)
+}
+
+#flashcard {
+    display: flex;
+    justify-content: safe center;
+    align-items: center;
+    width: 940px;
+    height: 540px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5)
+}
+
+#flashcard-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    text-align: center;
+    flex-direction: column;
+    overflow: auto;
+    padding: 20px;
+    font-size: xx-large;
+    font-family: 'Lato', sans-serif;
+}
+
+#left-arrow-block {
+    background-image: url("images/left-arrow.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px;
+}
+
+#right-arrow-block {
+    background-image: url("images/right-arrow.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px;
+}
