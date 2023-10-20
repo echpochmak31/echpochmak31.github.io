@@ -13,9 +13,9 @@ header {
 }
 
 .top-bar-container .logo {
-    margin-left: 80px;
+    margin-left: 2%;
     width: 10%;
-    height: 10%;
+    height: auto; /* Это позволяет сохранить пропорции изображения */
 }
 
 nav ul li {
@@ -38,22 +38,12 @@ nav ul li a {
 }
 
 #avatar {
-    /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
     background-image: url('https://i.stack.imgur.com/Dj7eP.jpg');
-
-    /* make a square container */
     width: 100px;
     height: 100px;
-
     margin-top: 10px;
     margin-bottom: 10px;
-
-    /* fill the container, preserving aspect ratio, and cropping to fit */
     background-size: cover;
-
-    /* center the image vertically and horizontally */
     background-position: top center;
-
-    /* round the edges to a circle with border radius 1/2 container size */
     border-radius: 50%;
 }

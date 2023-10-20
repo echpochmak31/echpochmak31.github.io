@@ -28,7 +28,7 @@
     .arrow-block {
         width: 3.125rem; /* 50px */
         height: calc(100% - 7.5rem); /* 120px */
-        border-radius: 0.3125rem; /* 5px */
+        border-radius: 0.625rem;
     }
 
     #flashcard {
@@ -51,12 +51,9 @@
         font-family: 'Lato', sans-serif;
     }
 
-    #left-arrow-block {
+    #left-arrow-block, #right-arrow-block {
         background-size: 1.875rem; /* 30px */
-    }
-
-    #right-arrow-block {
-        background-size: 1.875rem; /* 30px */
+        margin: 0 0.25rem;  /* Применил стили к обоим блокам стрелок */
     }
 
     header {

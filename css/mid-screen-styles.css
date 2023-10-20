@@ -1,4 +1,4 @@
-@media only screen and (min-width: 600px) and (max-width: 1280px) {
+@media only screen and (min-width: 600px) and (max-width: 2560px) {
     .flashcard-line {
         margin-left: 2.5rem;
         margin-right: 2.5rem;
@@ -14,30 +14,31 @@
     }
 
     .container {
-        padding: 0 5rem;
+        padding: 0 1.5rem;
     }
 
     #flashcard-block {
+        display: flex;
         flex-direction: row;
-        gap: 0.625rem; /* 10px */
+        gap: 0.625rem;
         width: 100%;
         min-height: 25rem;
-        padding: 0.5rem 0; /* Уменьшить отступы сверху и снизу */
     }
 
     .arrow-block {
-        width: 10%;
-        height: calc(100% - 7.5rem); /* Уменьшить высоту на размер отступов сверху и снизу */
+        width: 8%; /* Уменьшим ширину arrow-block */
+        height: calc(100% - 7.5rem);
         border-radius: 0.625rem;
     }
 
     #flashcard {
-        width: calc(80% - 1rem); /* Увеличить ширину, уменьшив отступы */
-        height: calc(100% - 2rem); /* Уменьшить высоту на размер отступов сверху и снизу */
+        width: calc(84% - 1rem); /* Увеличим ширину flashcard */
+        height: calc(100% - 2rem);
         display: flex;
         align-items: center;
         justify-content: center;
     }
+
 
     #flashcard div {
         width: calc(100% - 2rem);
@@ -47,8 +48,8 @@
 
     #flashcard-text {
         display: flex;
-        justify-content: flex-start; /* Изменено здесь */
-        align-items: flex-start; /* Изменено здесь */
+        justify-content: flex-start;
+        align-items: flex-start;
         width: 100%;
         height: 100%;
         text-align: center;
@@ -59,16 +60,9 @@
         font-family: 'Lato', sans-serif;
     }
 
-
-
-    #left-arrow-block {
-        background-size: 1.5rem; /* Уменьшить размер изображения стрелки */
-        margin-left: 0.5rem;
-    }
-
-    #right-arrow-block {
-        background-size: 1.5rem; /* Уменьшить размер изображения стрелки */
-        margin-right: 0.5rem;
+    #left-arrow-block, #right-arrow-block {
+        background-size: 1.5rem;
+        margin: 0 0.5rem; /* Применил стили к обоим блокам стрелок */
     }
 
     header {
@@ -81,9 +75,7 @@
     }
 
     .top-bar-container .logo {
-        margin-left: 5rem;
-        width: 15%;
-        height: 15%;
+        width: 20%; /* или любой другой процент, который вы считаете оптимальным для данного диапазона */
     }
 
     nav ul {
@@ -101,8 +93,10 @@
 
     #avatar {
         width: 6.25rem;
-        height: 6.25rem;
-        margin-top: 0.625rem;
-        margin-bottom: 0.625rem;
+        height: 6.25rem; /* Явное задание одинаковой ширины и высоты для сохранения круглой формы */
+        min-width: 6.25rem;
+        max-width: 6.25rem;
+        min-height: 6.25rem;
+        max-height: 6.25rem; /* Применение min и max для предотвращения изменений размеров */
     }
 }
