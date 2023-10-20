@@ -1,0 +1,108 @@
+@media only screen and (min-width: 600px) and (max-width: 1280px) {
+    .flashcard-line {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+
+    #flashcard-info {
+        flex-direction: row;
+        align-items: center;
+        margin-left: 5rem;
+        margin-right: 5rem;
+        margin-top: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0 5rem;
+    }
+
+    #flashcard-block {
+        flex-direction: row;
+        gap: 0.625rem; /* 10px */
+        width: 100%;
+        min-height: 25rem;
+        padding: 0.5rem 0; /* Уменьшить отступы сверху и снизу */
+    }
+
+    .arrow-block {
+        width: 10%;
+        height: calc(100% - 7.5rem); /* Уменьшить высоту на размер отступов сверху и снизу */
+        border-radius: 0.625rem;
+    }
+
+    #flashcard {
+        width: calc(80% - 1rem); /* Увеличить ширину, уменьшив отступы */
+        height: calc(100% - 2rem); /* Уменьшить высоту на размер отступов сверху и снизу */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #flashcard div {
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+        padding: 1rem;
+    }
+
+    #flashcard-text {
+        display: flex;
+        justify-content: flex-start; /* Изменено здесь */
+        align-items: flex-start; /* Изменено здесь */
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        flex-direction: column;
+        overflow: auto;
+        padding: 20px;
+        font-size: xx-large;
+        font-family: 'Lato', sans-serif;
+    }
+
+
+
+    #left-arrow-block {
+        background-size: 1.5rem; /* Уменьшить размер изображения стрелки */
+        margin-left: 0.5rem;
+    }
+
+    #right-arrow-block {
+        background-size: 1.5rem; /* Уменьшить размер изображения стрелки */
+        margin-right: 0.5rem;
+    }
+
+    header {
+        padding-bottom: 0;
+    }
+
+    .top-bar-container nav {
+        flex-direction: row;
+        padding-right: 5rem;
+    }
+
+    .top-bar-container .logo {
+        margin-left: 5rem;
+        width: 15%;
+        height: 15%;
+    }
+
+    nav ul {
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        padding: 0.625rem 1.25rem;
+    }
+
+    .header-list .list-item {
+        font-size: 1.25rem;
+    }
+
+    #avatar {
+        width: 6.25rem;
+        height: 6.25rem;
+        margin-top: 0.625rem;
+        margin-bottom: 0.625rem;
+    }
+}

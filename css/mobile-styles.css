@@ -1,0 +1,96 @@
+@media only screen and (max-width: 600px) {
+    .flashcard-line {
+        margin-left: 1.25rem; /* 20px */
+        margin-right: 1.25rem; /* 20px */
+    }
+
+    #flashcard-info {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 1.25rem; /* 20px */
+        margin-right: 1.25rem; /* 20px */
+        margin-top: 1.25rem; /* 20px */
+        font-size: large;
+    }
+
+    .container {
+        padding: 0 1.25rem; /* 20px */
+    }
+
+    #flashcard-block {
+        flex-direction: row;
+        gap: 0.625rem; /* 10px */
+        width: 100%;
+        min-height: 18.75rem; /* 300px */
+        padding: 1.25rem 0; /* 20px */
+    }
+
+    .arrow-block {
+        width: 3.125rem; /* 50px */
+        height: calc(100% - 7.5rem); /* 120px */
+        border-radius: 0.3125rem; /* 5px */
+    }
+
+    #flashcard {
+        width: calc(100% - 7.5rem); /* 120px */
+        height: calc(100% - 2.5rem); /* 40px */
+        min-height: 12.5rem; /* 200px */
+    }
+
+    #flashcard-text {
+        display: flex;
+        justify-content: flex-start; /* Изменено здесь */
+        align-items: flex-start; /* Изменено здесь */
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        flex-direction: column;
+        overflow: auto;
+        padding: 20px;
+        font-size: xx-large;
+        font-family: 'Lato', sans-serif;
+    }
+
+    #left-arrow-block {
+        background-size: 1.875rem; /* 30px */
+    }
+
+    #right-arrow-block {
+        background-size: 1.875rem; /* 30px */
+    }
+
+    header {
+        padding-bottom: 0;
+    }
+
+    .top-bar-container nav {
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .top-bar-container .logo {
+        margin-left: 1.25rem; /* 20px */
+        width: 20%;
+        height: 20%;
+    }
+
+    nav ul {
+        padding: 0;
+        text-align: center;
+    }
+
+    nav ul li {
+        padding: 0.3125rem 0.625rem; /* 5px 10px */
+    }
+
+    .header-list .list-item {
+        font-size: medium;
+    }
+
+    #avatar {
+        width: 3.125rem; /* 50px */
+        height: 3.125rem; /* 50px */
+        margin-top: 0.3125rem; /* 5px */
+        margin-bottom: 0.3125rem; /* 5px */
+    }
+}
