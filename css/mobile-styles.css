@@ -1,4 +1,18 @@
 @media only screen and (max-width: 600px) {
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 25vh;
+        z-index: 1000;
+    }
+
+    .header-placeholder {
+        height: 30vh; /* Меняйте это значение в соответствии с высотой вашего header */
+    }
+
     .flashcard-line {
         margin-left: 1.25rem; /* 20px */
         margin-right: 1.25rem; /* 20px */
@@ -80,9 +94,6 @@
         padding: 0.3125rem 0.625rem; /* 5px 10px */
     }
 
-    .header-list .list-item {
-        font-size: medium;
-    }
 
     #avatar {
         width: 3.125rem; /* 50px */
