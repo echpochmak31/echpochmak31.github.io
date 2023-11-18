@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliCards | Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+    <!-- Добавьте ссылки на другие CSS-файлы, необходимые для стилизации -->
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            /* Используйте правильный путь к вашему фоновому изображению */
+            background-image: url('images/home-background.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .start-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg">
+    <div class="content">
+        <img src="images/logo-l.png" alt="IntelliCards Logo" class="logo">
+        <div class="title">HANDY FLASHCARDS for achieving your goals</div>
+        <div class="description">A simple and effective tool to help you learn and repeat what you have learned. Some more text</div>
+        <button class="start-button">GET STARTED</button>
+    </div>
+</div>
+<footer>
+    <p id="load-time-info"></p>
+</footer>
+<script>
+    (function() {
+        window.addEventListener('load', function() {
+            var timing = window.performance.timing;
+            var loadTime = (timing.loadEventEnd - timing.navigationStart) / 1000;
+
+            if (timing.loadEventEnd > timing.navigationStart) {
+                // Выводим информацию о времени загрузки, только если значение корректно
+                document.getElementById('load-time-info').textContent = 'Page load time was ' + loadTime.toFixed(2) + ' seconds.';
+            } else {
+                // Если значение некорректно, можно попробовать повторить расчет через некоторое время
+                setTimeout(function() {
+                    var loadTimeRetry = (performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000;
+                    if (performance.timing.loadEventEnd > performance.timing.navigationStart) {
+                        document.getElementById('load-time-info').textContent = 'Page load time was ' + loadTimeRetry.toFixed(2) + ' seconds.';
+                    }
+                }, 0); // setTimeout с нулевой задержкой позволит выполнить повторную проверку после завершения текущего цикла событий
+            }
+        });
+    })();
+</script>
+
+</body>
+</html>

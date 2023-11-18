@@ -47,3 +47,10 @@ nav ul li a {
     background-position: top center;
     border-radius: 50%;
 }
+
+.highlight {
+    background-color: #c0392b; /* Цвет фона для выделения */
+    /*background-color: #f0f0f0; !* Цвет фона для выделения *!*/
+    color: green; /* Цвет текста для выделения */
+    border-radius: 5px; /* Скругление углов для выделения */
+}

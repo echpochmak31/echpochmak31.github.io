@@ -1,0 +1,76 @@
+/* Основные стили для тела документа и фона */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif; /* Подключение шрифта Lato, если он используется */
+}
+
+.bg {
+    background-image: url('../images/your-background-image.jpg'); /* Путь к вашему фоновому изображению */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Высота на весь экран */
+}
+
+/* Стилизация и позиционирование основного контента */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+/* Стили для логотипа, если он присутствует на картинке */
+.logo {
+    max-width: 100px; /* Или другой размер, соответствующий вашему дизайну */
+    margin-bottom: 20px;
+}
+
+/* Стилизация заголовка */
+.title {
+    font-size: 2.5rem; /* Размер шрифта для заголовка */
+    font-weight: bold; /* Жирное начертание */
+    margin-bottom: 20px;
+}
+
+/* Стилизация описания под заголовком */
+.description {
+    font-size: 1.2rem; /* Размер шрифта для описания */
+    margin-bottom: 40px;
+}
+
+/* Стили для кнопки */
+.start-button {
+    background-color: #e74c3c; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem; /* Размер шрифта на кнопке */
+    border-radius: 25px; /* Скругление углов кнопки */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    text-decoration: none; /* Убрать подчеркивание текста */
+    transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
+}
+
+.start-button:hover {
+    background-color: #c0392b; /* Цвет фона кнопки при наведении */
+}
+
+/* Добавление медиа-запросов для отзывчивости */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem; /* Уменьшенный размер шрифта для заголовка на мобильных устройствах */
+    }
+
+    .description {
+        font-size: 1rem; /* Уменьшенный размер шрифта для описания на мобильных устройствах */
+    }
+
+    .start-button {
+        padding: 10px 20px; /* Уменьшенные паддинги для кнопки на мобильных устройствах */
+    }
+}
