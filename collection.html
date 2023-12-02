@@ -5,14 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/header.css">
+
     <link rel="stylesheet" href="css/collection.css">
 </head>
 <body>
 
 <div class="container">
     <header>
-        <nav>
-        </nav>
+        <div class="top-bar-container">
+            <nav>
+                <img src="images/logo-l.png" class="logo">
+                <ul class="header-list">
+                    <li class="list-item"><a href="./home.html">Home</a></li>
+                    <li class="list-item"><a href="./collection.html">Collection</a></li>
+                    <li class="list-item"><a href="./about.html">About</a></li>
+                    <li class="list-item"><a href="./manual.html">Manual</a></li>
+                    <li class="list-item"><a href="./contact.html">Contact</a></li>
+                </ul>
+                <a id="avatar" href="https://www.google.com"></a>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -20,13 +33,11 @@
             <div class="search-header">
                 <h1>Your Collection</h1>
             </div>
+            <div class="add-collection-form">
+                <input type="text" id="new-collection-name" placeholder="Enter new collection name" required>
+                <button onclick="addCollection()">Add Collection</button>
+            </div>
             <ul class="items-list">
-                <li>
-                    <div class="collection-item">My collection 1</div>
-                </li>
-                <li>
-                    <div class="collection-item">Favorite flashcards</div>
-                </li>
             </ul>
         </section>
     </main>
@@ -37,8 +48,8 @@
     <p id="load-time-info"></p>
 </footer>
 <script>
-    (function() {
-        window.addEventListener('load', function() {
+    (function () {
+        window.addEventListener('load', function () {
             var timing = window.performance.timing;
             var loadTime = (timing.loadEventEnd - timing.navigationStart) / 1000;
 
@@ -47,7 +58,7 @@
                 document.getElementById('load-time-info').textContent = 'Page load time was ' + loadTime.toFixed(2) + ' seconds.';
             } else {
                 // Если значение некорректно, можно попробовать повторить расчет через некоторое время
-                setTimeout(function() {
+                setTimeout(function () {
                     var loadTimeRetry = (performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000;
                     if (performance.timing.loadEventEnd > performance.timing.navigationStart) {
                         document.getElementById('load-time-info').textContent = 'Page load time was ' + loadTimeRetry.toFixed(2) + ' seconds.';
@@ -57,5 +68,112 @@
         });
     })();
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var headerListItems = document.querySelectorAll('.header-list .list-item a');
+        var currentPath = window.location.pathname.split('/').pop(); // имя текущего файла
+
+        headerListItems.forEach(function (item) {
+            if (item.getAttribute('href').includes(currentPath)) {
+                item.classList.add('active-menu-item');
+            } else {
+                item.classList.remove('active-menu-item');
+            }
+        });
+    });
+</script>
+<script>
+    function addCollection() {
+        var collectionName = document.getElementById('new-collection-name').value;
+        if (collectionName) {
+            // Создаем новый элемент списка и добавляем его
+
+            var deleteBtn = document.createElement('button');
+            // deleteBtn.textContent = 'Delete';
+            deleteBtn.className = 'delete-btn';
+            // Добавление обработчика событий для кнопки
+            deleteBtn.onclick = function (event) {
+                deleteCollection(event);
+            };
+
+            var ul = document.querySelector('.items-list');
+            var li = document.createElement('li');
+            var div = document.createElement('div');
+            div.className = 'collection-item';
+            div.textContent = collectionName;
+            li.appendChild(div);
+            li.appendChild(deleteBtn);
+            ul.appendChild(li);
+
+            // Сохраняем в localStorage
+            saveCollectionToLocalStorage(collectionName);
+
+            // Очищаем поле ввода после добавления
+            document.getElementById('new-collection-name').value = '';
+        }
+    }
+
+    // Функция для сохранения названия коллекции в localStorage
+    function saveCollectionToLocalStorage(collectionName) {
+        // Получаем текущий массив коллекций или создаем новый, если он еще не существует
+        var collections = JSON.parse(localStorage.getItem('collections')) || [];
+        collections.push(collectionName);
+        localStorage.setItem('collections', JSON.stringify(collections));
+    }
+
+    // Функция для загрузки сохраненных коллекций из localStorage при загрузке страницы
+    function loadCollectionsFromLocalStorage() {
+        var collections = JSON.parse(localStorage.getItem('collections')) || [];
+        var ul = document.querySelector('.items-list');
+        collections.forEach(function (collectionName) {
+            var li = document.createElement('li');
+            var div = document.createElement('div');
+            var deleteBtn = document.createElement('button');
+            // deleteBtn.textContent = 'Delete';
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.onclick = function (event) {
+                deleteCollection(event);
+            };
+            div.className = 'collection-item';
+            div.textContent = collectionName;
+            li.appendChild(div);
+            li.appendChild(deleteBtn);
+            ul.appendChild(li);
+        });
+    }
+
+    // Вызываем функцию загрузки коллекций при полной загрузке DOM
+    document.addEventListener('DOMContentLoaded', function () {
+        loadCollectionsFromLocalStorage();
+    });
+
+    function deleteCollection(event) {
+        // Получаем родительский элемент списка (li)
+        var li = event.target.parentElement;
+        var collectionName = li.querySelector('.collection-item').textContent;
+
+        // Удаляем этот элемент из DOM
+        li.remove();
+
+        // Удаляем элемент из массива в localStorage
+        var collections = JSON.parse(localStorage.getItem('collections')) || [];
+        var collectionIndex = collections.indexOf(collectionName);
+        if (collectionIndex !== -1) {
+            collections.splice(collectionIndex, 1);
+            localStorage.setItem('collections', JSON.stringify(collections));
+        }
+    }
+
+    // Привязываем событие клика к кнопкам удаления
+    document.addEventListener('click', function (event) {
+        if (event.target.className === 'delete-btn') {
+            deleteCollection(event);
+        }
+    });
+
+
+</script>
+
+
 </body>
 </html>

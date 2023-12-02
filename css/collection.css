@@ -40,3 +40,154 @@ footer {
     font-size: 1.2em;
 }
 
+.active-menu-item {
+    background-color: green;
+    color: white;
+}
+
+.add-collection-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-collection-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 8px;
+    border: 1px solid #ddd;
+    max-width: 300px;
+}
+
+.add-collection-form button {
+    padding: 10px 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-collection-form button:hover {
+    background-color: darkgreen;
+}
+
+.search-header, .add-collection-form {
+    display: flex;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+
+.add-collection-form {
+    display: flex;
+    justify-content: center; /* Центрируем форму */
+    margin-bottom: 20px;
+}
+
+.add-collection-form input[type="text"] {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.add-collection-form button {
+    flex: 0 1 auto;
+    padding: 10px 20px;
+}
+
+
+.items-list {
+    padding: 0 5%;
+}
+
+.items-list li {
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.add-collection-form input[type="text"] {
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin-right: 20px; /* Отступ между полем ввода и кнопкой */
+    border-radius: 20px; /* Скругление углов, как у Google */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тень для добавления глубины */
+    flex: none; /* Отключаем flex-grow для точного контроля размеров */
+    width: calc(100% - 160px);
+}
+
+.add-collection-form button {
+    border-radius: 20px; /* Скругление углов */
+    flex: none; /* Отключаем flex-grow */
+    width: 140px; /* Задаем фиксированную ширину кнопки */
+}
+
+/* v2 */
+
+/* Стили для элементов списка */
+.collection-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+/* Стили для меню опций */
+.options-menu {
+    display: none; /* Скрыто по умолчанию */
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}
+
+/* Стиль для отображения меню опций */
+.visible {
+    display: block;
+}
+
+/* Кнопки рядом с элементом списка */
+.collection-item-wrapper button {
+    margin-left: 10px;
+}
+
+/* v3 */
+
+
+.delete-btn {
+    padding: 10px 15px;
+    background-color: red;
+    background: url('../images/trash-icon.png') no-repeat center center;
+    background-size: 40px 40px; /* Задайте желаемые размеры иконки */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center; /* Гарантирует, что текст будет отцентрован, если он есть */
+}
+
+.delete-btn {
+    height: 40px; /* Высота кнопки */
+    width: 40px; /* Ширина кнопки */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-btn:hover {
+    background-color: black;
+}
+
+.delete-btn-text {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.delete-btn-icon {
+    font-size: 1.2em;
+}
+
