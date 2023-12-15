@@ -53,17 +53,10 @@
         <div id="flashcard-block">
             <div id="left-arrow-block" class="arrow-block"></div>
             <div id="flashcard">
-                <div id="flashcard-text">
-                    <p>
-                    Плацента́рные[1] (лат. Placentalia, от placenta ‘плацента’, буквально: пирог[2]) — наиболее
-                    обширная группа млекопитающих (включает примерно 94 % современных видов этого класса). По
-                    современным представлениям, рассматривается как кроновая группа для тотальной группы эутериев
-                    (Eutheria)[3] — сестринской кладе по отношению к кладе метатериев (Metatheria; для последней
-                    кроновой группой служат сумчатые — Marsupialia). В известных классификациях млекопитающих либо
-                    не приписывают кладе Placentalia определённого ранга, либо трактуют её как таксон, ранг которого
-                    определяют по-разному (как подкласс[4], инфракласс[1][5][6], когорту[7] или
-                    надотряд[8])[9][10][11].
-                    </p>
+                <div id="flashcard-text"></div>
+                <div class="preloader" id="preloader"></div>
+                <div id="error-message" style="display: none;">
+                    <p>⚠ Что-то пошло не так</p>
                 </div>
             </div>
             <div id="right-arrow-block" class="arrow-block" href="https://www.google.com"></div>
@@ -87,10 +80,79 @@
     }
 
     // Добавляем обработчики событий для каждого элемента списка
-    headerListItems.forEach(function(item) {
+    headerListItems.forEach(function (item) {
         item.addEventListener('mouseover', highlightMenuItem);
         item.addEventListener('mouseout', unhighlightMenuItem);
     });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var fetchCount = 0;
+        var currentId = 1;
+        var leftArrow = document.getElementById('left-arrow-block');
+        var rightArrow = document.getElementById('right-arrow-block');
+
+        function fetchAndUpdateText() {
+            var flashcardText = document.getElementById('flashcard-text');
+            var preloader = document.getElementById('preloader');
+            var errorMessage = document.getElementById('error-message');
+
+            // Определяем ID для запроса в зависимости от того, первый это запрос или второй
+            if (fetchCount % 2 === 0) { // Для чётных обращений (включая первое)
+                currentId = getRandomInt(100, 200); // ID от 100 до 199
+            } else { // Для нечётных обращений
+                currentId = getRandomInt(1, 100); // ID от 1 до 99
+            }
+            fetchCount++;
+
+            // Скрываем текст и прелоадер, инициализируем отображение сообщения об ошибке как скрытое
+            flashcardText.style.display = 'none';
+            errorMessage.style.display = 'none';
+            preloader.style.display = 'block';
+
+            fetch('https://jsonplaceholder.typicode.com/comments/' + currentId)
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    flashcardText.innerHTML = '<p>' + data.body + '</p>';
+                    // Показываем текст, скрываем прелоадер и сообщение об ошибке
+                    flashcardText.style.display = 'block';
+                    preloader.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                })
+                .catch(function (error) {
+                    console.error('Error:', error);
+                    // Скрываем прелоадер, текст и показываем сообщение об ошибке
+                    preloader.style.display = 'none';
+                    flashcardText.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                });
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        // Обработчики для стрелок
+        leftArrow.addEventListener('click', function () {
+            fetchAndUpdateText(); // Запрашиваем текст при клике на левую стрелку
+        });
+
+        rightArrow.addEventListener('click', function () {
+            fetchAndUpdateText(); // Запрашиваем текст при клике на правую стрелку
+        });
+
+        // Первоначальный запрос данных
+        fetchAndUpdateText();
+    });
+
 </script>
 </body>
 </html>
